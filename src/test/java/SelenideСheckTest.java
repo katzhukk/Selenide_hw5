@@ -14,7 +14,7 @@ public class SelenideСheckTest {
     static void beforeAll() {/* Всегда пишется со static. Вызывается один перед всеми тестами в этом тестовом классе*/
         Configuration.browserSize = "1920x1080";        /* Задаем разрешение браузера */
         Configuration.pageLoadStrategy = "eager";       /* Не ждем, когда загрузится полностью страница, чтобы долго не ждать*/
-        Configuration.holdBrowserOpen = true;         /* Не дает закрыть тесту браузер. Нужно только для отладки */
+        //Configuration.holdBrowserOpen = true;         /* Не дает закрыть тесту браузер. Нужно только для отладки */
     }
 
     @AfterAll
@@ -24,9 +24,9 @@ public class SelenideСheckTest {
 
     @Test
     void fillFormTest() {
-        //На главной странице GitHub выберите: Меню -> Solutions -> Enterprize (с помощью команды hover для Solutions).
-        open("https://github.com/"); /*Открывает форму automation-practice-form*/
-        $(".HeaderMenu-nav").$(byText("Solutions")).hover();
+        //На главной странице GitHub выберите: Меню -> Solutions -> Enterprise (с помощью команды hover для Solutions).
+        open("https://github.com/");
+        $(".HeaderMenu-nav").$(byText("Solutions")).hover(); // подвигает курсор к Solutions
         $("[href='https://github.com/enterprise']").click();
 
         //Убедиться, что загрузилась нужная страница (например, что заголовок: "The AI-powered developer platform.").
